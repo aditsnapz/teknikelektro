@@ -38,11 +38,12 @@
 								<thead class="atas">
 									<tr>
 										<th width="5%">ID</th>
-										<th width="20%">Unit</th>
+										<th width="50%">Unit</th>
 										<th width="10%">Doktor</th>
 										<th width="10%">Magister</th>
-										<th width="20%">Profesi</th>
-										<th width="10%">Action</th>
+										<th width="10%">Profesi</th>
+										<th width="10%">Jumlah</th>
+										<!-- <th width="10%">Action</th> -->
 									</tr>
 								</thead>
 								<tbody>
@@ -52,18 +53,19 @@
 									?>
 									<tr>
 										<td><?php echo $no; ?></td>
-										<td><?php echo $tabel3a1->unit; ?></td>
+										<td><?php echo $tabel3a1->unit.' / '.$tabel3a1->unit2.' / '.$tabel3a1->unit3; ?></td>
 										<td><?php echo $tabel3a1->doktor; ?></td>
 										<td><?php echo $tabel3a1->magister; ?></td>
 										<td><?php echo $tabel3a1->profesi; ?></td>
-										<td>
+										<td><?php echo $tabel3a1->jumlah; ?></td>
+										<!-- <td>
 											<button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
 												data-target="#edit-tabel3a1<?php echo $tabel3a1->id;?>"><i
 													class="fa fa-edit"></i>&nbsp&nbspUpdate</button>
 											<a class="btn btn-danger btn-sm delete-link" href="<?= base_url('Tabel3a1/delete/'.$tabel3a1->id);?>"><i
 													class="fa fa-trash "></i>&nbsp&nbspDelete</a>
 
-										</td>
+										</td> -->
 									</tr>
 									<?php $no++; } ?>
 
@@ -75,7 +77,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="modal fade" id="tambah-tabel3a1" >
+				<!-- <div class="modal fade" id="tambah-tabel3a1" >
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
 								<div class="modal-header">
@@ -120,12 +122,12 @@
 								</div>
 							</form>
 						</div>
-						<!-- /.modal-content -->
+						
 					</div>
-					<!-- /.modal-dialog -->
-				</div>
-				<!-- /.modal -->
-				<?php $no=1;
+					
+				</div> -->
+				
+				<!-- <?php $no=1;
 				foreach ($tabel3a1s as  $tabel3a1) {
 				?>
 				<div class="modal fade" id="edit-tabel3a1<?php echo $tabel3a1->id;?>">
@@ -175,12 +177,12 @@
 							</form>
 								
 						</div>
-						<!-- /.modal-content -->
+						
 					</div>
-					<!-- /.modal-dialog -->
-				</div>
+					
+				</div> -->
 				<!-- /.modal -->
-				<?php $no++; } ?>
+				<!-- <?php $no++; } ?>
 				<div class="modal fade" id="import-tabel3a1" >
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
@@ -208,10 +210,10 @@
 								</div>
 							</form>
 						</div>
-						<!-- /.modal-content -->
+						
 					</div>
-					<!-- /.modal-dialog -->
-				</div>
+					
+				</div> -->
 			</div>
 		</div>
 	</section>

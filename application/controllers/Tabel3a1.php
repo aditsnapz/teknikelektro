@@ -8,17 +8,18 @@ class Tabel3a1 extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Tabel3a1Model');
-        $this->path = 'assets/images/';
     }
 
 	public function index()
 	{
-        $tabel3a1s = $this->Tabel3a1Model->show();
-      
+        $tabel3a1s = json_decode(
+						file_get_contents(SERVICE_URL.'getTabel3a1')
+					);
+		
         $this->load->view('main.php',[
             "page" => "tabel3a1",
             "content" => [],
-            "tabel3a1s" => $tabel3a1s, 
+            "tabel3a1s" => $tabel3a1s->data, 
         ]);
     }
 

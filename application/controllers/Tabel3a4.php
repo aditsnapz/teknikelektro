@@ -13,12 +13,14 @@ class Tabel3a4 extends CI_Controller {
 
 	public function index()
 	{
-        $tabel3a4s = $this->Tabel3a4Model->show();
+        $tabel3a4s = json_decode(
+			file_get_contents(SERVICE_URL.'getTabel3a4')
+		);
       
         $this->load->view('main.php',[
             "page" => "tabel3a4",
             "content" => [],
-            "tabel3a4s" => $tabel3a4s, 
+            "tabel3a4s" => $tabel3a4s->data, 
         ]);
     }
 

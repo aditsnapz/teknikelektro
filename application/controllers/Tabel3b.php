@@ -13,12 +13,14 @@ class Tabel3b extends CI_Controller {
 
 	public function index()
 	{
-        $tabel3bs = $this->Tabel3bModel->show();
+        $tabel3bs = json_decode(
+			file_get_contents(SERVICE_URL.'getRasioDsnMhs')
+		);
       
         $this->load->view('main.php',[
             "page" => "tabel3b",
             "content" => [],
-            "tabel3bs" => $tabel3bs, 
+            "tabel3bs" => $tabel3bs->data, 
         ]);
     }
 
