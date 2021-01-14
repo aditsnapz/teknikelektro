@@ -14,7 +14,7 @@ class Tabel3a4 extends CI_Controller {
 	public function index()
 	{
         $tabel3a4s = json_decode(
-			file_get_contents(SERVICE_URL.'getTabel3a4')
+			file_get_contents(SERVICE_URL.'Dosen/getTabel3a4')
 		);
       
         $this->load->view('main.php',[

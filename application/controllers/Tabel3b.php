@@ -14,7 +14,7 @@ class Tabel3b extends CI_Controller {
 	public function index()
 	{
         $tabel3bs = json_decode(
-			file_get_contents(SERVICE_URL.'getRasioDsnMhs')
+			file_get_contents(SERVICE_URL.'Dosen/getRasioDsnMhs')
 		);
       
         $this->load->view('main.php',[

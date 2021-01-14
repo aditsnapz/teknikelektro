@@ -2,24 +2,26 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class Tabel3a2 extends CI_Controller {
+class Tabel6a_aps extends CI_Controller {
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Tabel3a2Model');
+        $this->load->model('Tabel6a_apsModel');
         $this->path = 'assets/images/';
     }
 
 	public function index()
 	{
-        $tabel3a2s = json_decode(
-			file_get_contents(SERVICE_URL.'Dosen/getTabel3a2')
+        $tabel6a_apss = json_decode(
+			file_get_contents(SERVICE_URL.'Pkm/getPenelitiandtpsmhs')
 		);
+		// var_dump($tabel6a_apss);
+		// die();
         $this->load->view('main.php',[
-            "page" => "tabel3a2",
+            "page" => "tabel6a_aps",
             "content" => [],
-            "tabel3a2s" => $tabel3a2s->data, 
+            "tabel6a_apss" => $tabel6a_apss->data, 
         ]);
     }
 
@@ -39,8 +41,8 @@ class Tabel3a2 extends CI_Controller {
         ];
         
         
-        $this->Tabel3a2Model->insert($data);
-        redirect(base_url('Tabel3a2'));
+        $this->Tabel6a_apsModel->insert($data);
+        redirect(base_url('Tabel6a_aps'));
         
         
     }
@@ -61,14 +63,14 @@ class Tabel3a2 extends CI_Controller {
         ];
 
         
-        $this->Tabel3a2Model->update($data, $id);
-        redirect(base_url('Tabel3a2'));
+        $this->Tabel6a_apsModel->update($data, $id);
+        redirect(base_url('Tabel6a_aps'));
     }
 
     public function delete($id)
     {
-        $this->Tabel3a2Model->delete($id);
-        redirect(base_url('Tabel3a2'));
+        $this->Tabel6a_apsModel->delete($id);
+        redirect(base_url('Tabel6a_aps'));
 	}
 	
 	public function import() 
@@ -119,8 +121,8 @@ class Tabel3a2 extends CI_Controller {
 					$i++;
 				}
 				               
-				$this->Tabel3a2Model->insert_batch($datains);
-        		redirect(base_url('Tabel3a2'));           
+				$this->Tabel6a_apsModel->insert_batch($datains);
+        		redirect(base_url('Tabel6a_aps'));           
 			} catch (Exception $e) {
 				die('Error loading file "' . pathinfo($inputFileName, PATHINFO_BASENAME)
 				. '": ' .$e->getMessage());
@@ -129,44 +131,44 @@ class Tabel3a2 extends CI_Controller {
 				echo $error['error'];
 			}
 		}
-		redirect(base_url('Tabel3a2')); 
+		redirect(base_url('Tabel6a_aps')); 
 		
 	}
 
 	public function chart()
 	{
 		$count_profesor = json_decode(
-			file_get_contents(SERVICE_URL.'Dosen/getJumlahProfesor')
+			file_get_contents(SERVICE_URL.'getJumlahProfesor')
 		);
 
-		$tabel3a2 = json_decode(
-			file_get_contents(SERVICE_URL.'Dosen/getTabel3a2')
+		$tabel6a_aps = json_decode(
+			file_get_contents(SERVICE_URL.'getTabel6a_aps')
 		);
 
-		$data_magister = [	$tabel3a2->data[0]->guru_besar,
-							$tabel3a2->data[0]->lektor_kepala, 
-							$tabel3a2->data[0]->lektor, 
-							$tabel3a2->data[0]->asisten_ahli,
-							$tabel3a2->data[0]->tenaga_pengajar
+		$data_magister = [	$tabel6a_aps->data[0]->guru_besar,
+							$tabel6a_aps->data[0]->lektor_kepala, 
+							$tabel6a_aps->data[0]->lektor, 
+							$tabel6a_aps->data[0]->asisten_ahli,
+							$tabel6a_aps->data[0]->tenaga_pengajar
 						];
-		$data_doktor = [	$tabel3a2->data[1]->guru_besar,
-							$tabel3a2->data[1]->lektor_kepala, 
-							$tabel3a2->data[1]->lektor, 
-							$tabel3a2->data[1]->asisten_ahli,
-							$tabel3a2->data[1]->tenaga_pengajar
+		$data_doktor = [	$tabel6a_aps->data[1]->guru_besar,
+							$tabel6a_aps->data[1]->lektor_kepala, 
+							$tabel6a_aps->data[1]->lektor, 
+							$tabel6a_aps->data[1]->asisten_ahli,
+							$tabel6a_aps->data[1]->tenaga_pengajar
 						];
 		
 
 		$this->load->view('main.php',[
-            "page" => "tabel3a2chart",
+            "page" => "tabel6a_apschart",
 			"content" => [],
 			"count_profesor" => json_encode($count_profesor->data[0]->jumlah),
-			"magister" => json_encode($tabel3a2->data[0]->guru_besar),
-			"doktor" => json_encode($tabel3a2->data[1]->guru_besar),
+			"magister" => json_encode($tabel6a_aps->data[0]->guru_besar),
+			"doktor" => json_encode($tabel6a_aps->data[1]->guru_besar),
 			"data_magister" => json_encode($data_magister),
 			"data_doktor" => json_encode($data_doktor),
-			"jumlah_magister" => json_encode($tabel3a2->data[0]->jumlah),
-			"jumlah_doktor" => json_encode($tabel3a2->data[1]->jumlah),
+			"jumlah_magister" => json_encode($tabel6a_aps->data[0]->jumlah),
+			"jumlah_doktor" => json_encode($tabel6a_aps->data[1]->jumlah),
         ]);
 	}
 

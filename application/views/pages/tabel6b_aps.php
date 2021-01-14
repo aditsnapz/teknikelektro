@@ -10,7 +10,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Jabatan Akademik Dosen Tetap</a></li>
-              <li class="breadcrumb-item active">Tabel3a2</li>
+              <li class="breadcrumb-item active">Tabel6b_aps</li>
             </ol>
           </div>
         </div>
@@ -23,13 +23,13 @@
 				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
-							<h3 class="card-title"><b>Data Tabel3a2 </b></h3>
+							<h3 class="card-title"><b>Data Tabel6b_aps </b></h3>
 							<div class="text-right">
-								<a href="<?= base_url('Tabel3a2/chart') ?>" type="button" class="btn btn-sm btn-primary" ><i class="fa fa-chart-bar"></i>&nbsp&nbspChart</a>
+								<a href="<?= base_url('Tabel6b_aps/chart') ?>" type="button" class="btn btn-sm btn-primary" ><i class="fa fa-chart-bar"></i>&nbsp&nbspChart</a>
 								<button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
-									data-target="#import-tabel3a2"><i class="fa fa-upload"></i>&nbsp&nbspImport</button>
+									data-target="#import-tabel6b_aps"><i class="fa fa-upload"></i>&nbsp&nbspImport</button>
 								<button type="button" class="btn btn-sm btn-success" data-toggle="modal"
-									data-target="#tambah-tabel3a2"><i class="fa fa-plus"></i>&nbsp&nbspTambah</button>
+									data-target="#tambah-tabel6b_aps"><i class="fa fa-plus"></i>&nbsp&nbspTambah</button>
 							</div>
 						</div>
 						<!-- /.box-header -->
@@ -39,35 +39,31 @@
 								<thead class="atas">
 									<tr>
 										<th width="5%">ID</th>
-										<th width="20%">Pendidikan</th>
-										<th width="10%">Guru Besar</th>
-										<th width="10%">Lektor Kepala</th>
-										<th width="10%">Lektor</th>
-										<th width="10%">Asisten Ahli</th>
-										<th width="10%">Tenaga Pengajar</th>
-										<th width="10%">Jumlah</th>
+										<th width="10%">Nama Dosen</th>
+										<th width="10%">Tema Penelitian</th>
+										<th width="10%">Nama Mahasiswa</th>
+										<th width="20%">Judul Kegiatan</th>
+										<th width="10%">Tahun</th>
 										<!-- <th width="10%">Action</th> -->
 									</tr>
 								</thead>
 								<tbody>
 									<?php
 									$no=1;
-									foreach ($tabel3a2s as $tabel3a2) {
+									foreach ($tabel6b_apss as $tabel6b_aps) {
 									?>
 									<tr>
 										<td><?php echo $no; ?></td>
-										<td><?php echo $tabel3a2->pendidikan; ?></td>
-										<td><?php echo $tabel3a2->guru_besar; ?></td>
-										<td><?php echo $tabel3a2->lektor_kepala; ?></td>
-										<td><?php echo $tabel3a2->lektor; ?></td>
-										<td><?php echo $tabel3a2->asisten_ahli; ?></td>
-										<td><?php echo $tabel3a2->tenaga_pengajar; ?></td>
-										<td><?php echo $tabel3a2->jumlah; ?></td>
+										<td><?php echo $tabel6b_aps->nama_dosen; ?></td>
+										<td><?php echo $tabel6b_aps->tema_penelitian ; ?></td>
+										<td><?php echo $tabel6b_aps->nama_mahasiswa; ?></td>
+										<td><?php echo $tabel6b_aps->judul; ?></td>
+										<td><?php echo $tabel6b_aps->tahun; ?></td>
 										<!-- <td>
 											 <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
-												data-target="#edit-tabel3a2<?php echo $tabel3a2->id;?>"><i
+												data-target="#edit-tabel6b_aps<?php echo $tabel6b_aps->id;?>"><i
 													class="fa fa-edit"></i>&nbsp&nbspUpdate</button>
-											<a class="btn btn-danger btn-sm delete-link" href="<?= base_url('Tabel3a2/delete/'.$tabel3a2->id);?>"><i
+											<a class="btn btn-danger btn-sm delete-link" href="<?= base_url('Tabel6b_aps/delete/'.$tabel6b_aps->id);?>"><i
 													class="fa fa-trash "></i>&nbsp&nbspDelete</a> 
 
 										</td> -->
@@ -82,18 +78,18 @@
 						</div>
 					</div>
 				</div>
-				<!-- <div class="modal fade" id="tambah-tabel3a2" >
+				<!-- <div class="modal fade" id="tambah-tabel6b_aps" >
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
 								<div class="modal-header">
-									<h4 class="modal-title"><strong>Tambah Tabel3a2</strong></h4>
+									<h4 class="modal-title"><strong>Tambah Tabel6b_aps</strong></h4>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
 									
 								</div>
 								<br>
-								<form method="POST" action="<?php echo base_url('Tabel3a2/add'); ?>" enctype="multipart/form-data" class="form-horizontal">
+								<form method="POST" action="<?php echo base_url('Tabel6b_aps/add'); ?>" enctype="multipart/form-data" class="form-horizontal">
 								<div class="modal-body">
 									<div class="form-group row">
 										<label for="nama" class="col-md-2 col-form-label">Pendidikan</label>
@@ -145,56 +141,56 @@
 				</div> -->
 				<!-- /.modal -->
 				<!-- <?php $no=1;
-				foreach ($tabel3a2s as  $tabel3a2) {
+				foreach ($tabel6b_apss as  $tabel6b_aps) {
 				?>
-				<div class="modal fade" id="edit-tabel3a2<?php echo $tabel3a2->id;?>">
+				<div class="modal fade" id="edit-tabel6b_aps<?php echo $tabel6b_aps->id;?>">
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
 								<div class="modal-header">
-									<h4 class="modal-title">Edit Tabel3a2</h4>
+									<h4 class="modal-title">Edit Tabel6b_aps</h4>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span></button>
 									
 								</div>
-								<form method="POST" action="<?php echo base_url('Tabel3a2/edit'); ?>" enctype="multipart/form-data" class="form-horizontal">
+								<form method="POST" action="<?php echo base_url('Tabel6b_aps/edit'); ?>" enctype="multipart/form-data" class="form-horizontal">
 								<div class="modal-body">
 									<div class="form-group row">
-										<input type="hidden" name="id" id="id" class="form-control" value="<?= $tabel3a2->id ?>" >
+										<input type="hidden" name="id" id="id" class="form-control" value="<?= $tabel6b_aps->id ?>" >
 									</div>
 									<div class="form-group row">
 										<label for="nama" class="col-md-2 col-form-label">Pendidikan</label>
 										<div class="col-md-10">
-											<input type="text" name="pendidikan" id="pendidikan" class="form-control" value="<?= $tabel3a2->pendidikan ?>" >
+											<input type="text" name="pendidikan" id="pendidikan" class="form-control" value="<?= $tabel6b_aps->pendidikan ?>" >
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="nama" class="col-md-2 col-form-label">Guru Besar</label>
 										<div class="col-md-10">
-											<input type="text" name="guru_besar" id="guru_besar" class="form-control" value="<?= $tabel3a2->guru_besar ?>" >
+											<input type="text" name="guru_besar" id="guru_besar" class="form-control" value="<?= $tabel6b_aps->guru_besar ?>" >
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="nama" class="col-md-2 col-form-label">Lektor Kepala</label>
 										<div class="col-md-10">
-											<input type="text" name="lektor_kepala" id="lektor_kepala" class="form-control" value="<?= $tabel3a2->lektor_kepala ?>">
+											<input type="text" name="lektor_kepala" id="lektor_kepala" class="form-control" value="<?= $tabel6b_aps->lektor_kepala ?>">
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="nama" class="col-md-2 col-form-label">Lektor</label>
 										<div class="col-md-10">
-											<input type="text" name="lektor" id="lektor" class="form-control" value="<?= $tabel3a2->lektor ?>" >
+											<input type="text" name="lektor" id="lektor" class="form-control" value="<?= $tabel6b_aps->lektor ?>" >
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="nama" class="col-md-2 col-form-label">Asisten Ahli</label>
 										<div class="col-md-10">
-											<input type="text" name="asisten_ahli" id="asisten_ahli" class="form-control" value="<?= $tabel3a2->asisten_ahli ?>" >
+											<input type="text" name="asisten_ahli" id="asisten_ahli" class="form-control" value="<?= $tabel6b_aps->asisten_ahli ?>" >
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="nama" class="col-md-2 col-form-label">Tenaga Pengajar</label>
 										<div class="col-md-10">
-											<input type="text" name="tenaga_pengajar" id="tenaga_pengajar" class="form-control" value="<?= $tabel3a2->tenaga_pengajar ?>" >
+											<input type="text" name="tenaga_pengajar" id="tenaga_pengajar" class="form-control" value="<?= $tabel6b_aps->tenaga_pengajar ?>" >
 										</div>
 									</div>
 								</div>
@@ -212,18 +208,18 @@
 				</div> -->
 				<!-- /.modal -->
 				<!-- <?php $no++; } ?>
-				<div class="modal fade" id="import-tabel3a2" >
+				<div class="modal fade" id="import-tabel6b_aps" >
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
 								<div class="modal-header">
-									<h4 class="modal-title"><strong>Import Tabel3a2</strong></h4>
+									<h4 class="modal-title"><strong>Import Tabel6b_aps</strong></h4>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
 									
 								</div>
 								<br>
-								<form method="POST" action="<?php echo base_url('Tabel3a2/import'); ?>" enctype="multipart/form-data" class="form-horizontal">
+								<form method="POST" action="<?php echo base_url('Tabel6b_aps/import'); ?>" enctype="multipart/form-data" class="form-horizontal">
 								<div class="modal-body">
 									<div class="form-group row">
 										<label for="nama" class="col-md-2 col-form-label">File</label>
@@ -266,10 +262,10 @@
 				},
 				function (isConfirm) {
 					if (isConfirm) {
-						swal("Deleted!", "Tabel3a2 sudah dihapus.", "success");
+						swal("Deleted!", "Tabel6b_aps sudah dihapus.", "success");
 						window.location.href = getLink
 					} else {
-						swal("Cancelled", "Tabel3a2 tidak terhapus :)", "error");
+						swal("Cancelled", "Tabel6b_aps tidak terhapus :)", "error");
 					}
 
 				});

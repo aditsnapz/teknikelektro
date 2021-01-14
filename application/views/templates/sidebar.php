@@ -4,7 +4,7 @@
     <a href="index3.html" class="brand-link navbar-navy">
       <img src="<?= base_url() ?>assets/dist/img/Undip_favicon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Teknik Elektro</span>
+      <span class="brand-text font-weight-light"><b>BIDATIK</b></span>
     </a>
 
     <!-- Sidebar -->
@@ -179,6 +179,42 @@
               <i class="nav-icon far fa-image"></i>
               <p>
 			  Pengunaan Dana
+              </p>
+            </a>
+          </li>
+					<li class="nav-header">Penelitian PKM</li>
+          <li class="nav-item">
+            <a href="<?= base_url('Tabel5b_aps') ?>" class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+			  PKM Dalam Pembelajaran
+                <span class="badge badge-info right">2</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= base_url('Tabel6a_aps') ?>" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+			  Penelitian DTPS Mahasiswa
+              </p>
+            </a>
+          </li>
+					<li class="nav-item">
+            <a href="<?= base_url('Tabel6b_aps') ?>" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+			  Penelitian DTPS Disertasi
+              </p>
+            </a>
+          </li>
+					<li class="nav-header">Pengolahan Data Prodi</li>
+          <li class="nav-item">
+            <a href="<?= base_url('Pengaturan') ?>" class="nav-link">
+              <i class="nav-icon far fa-chart-bar"></i>
+              <p>
+			  Pengaturan
+                <span class="badge badge-info right">2</span>
               </p>
             </a>
           </li>

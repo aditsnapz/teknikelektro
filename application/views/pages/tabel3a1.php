@@ -25,6 +25,8 @@
 						<div class="card-header">
 							<h3 class="card-title"><b>Data Tabel3a1 </b></h3>
 							<div class="text-right">
+								<button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
+									data-target="#tambah-tabel3a1"><i class="fa fa-chart-bar"></i>&nbsp&nbspChart</button>
 								<button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
 									data-target="#import-tabel3a1"><i class="fa fa-upload"></i>&nbsp&nbspImport</button>
 								<button type="button" class="btn btn-sm btn-success" data-toggle="modal"
