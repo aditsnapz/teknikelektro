@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Seleksi Mahasiswa Baru</h1>
+            <h1><?= $title ?></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Seleksi Mahasiswa Baru</a></li>
-              <li class="breadcrumb-item active">Tabel2a</li>
+              <li class="breadcrumb-item"><a href="#"><?= $title ?></a></li>
+              <li class="breadcrumb-item active"><?= $subtitle ?></li>
             </ol>
           </div>
         </div>
@@ -23,7 +23,7 @@
 				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
-							<h3 class="card-title"><b>Data Tabel2a </b></h3>
+							<h3 class="card-title"><b><?= $subtitle ?> </b></h3>
 							<div class="text-right">
 								<button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
 									data-target="#import-tabel2a"><i class="fa fa-upload"></i>&nbsp&nbspImport</button>

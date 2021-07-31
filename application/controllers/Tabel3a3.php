@@ -17,6 +17,8 @@ class Tabel3a3 extends CI_Controller {
       
         $this->load->view('main.php',[
             "page" => "tabel3a3",
+			"title" => "Tabel3a3",
+			"subtitle" => "(EWMP) Dosen Tetap Perguruan Tinggi",
             "content" => [],
             "tabel3a3s" => $tabel3a3s, 
         ]);
@@ -26,11 +28,15 @@ class Tabel3a3 extends CI_Controller {
     {
         date_default_timezone_set("Asia/Jakarta");
         $data = [
-            "unit" => $this->input->post('unit'),
-            "jumlah_dosen" => $this->input->post('jumlah_dosen'),
-            "jumlah_dosen_bersertifikat" => $this->input->post('jumlah_dosen_bersertifikat'),
-            "created_at" => date("Y-m-d H:i:s"),
-            "updated_at" => date("Y-m-d H:i:s"),
+            "nama_dosen" => $this->input->post('nama_dosen'),
+            "dtps" => $this->input->post('dtps'),
+            "ps_diakreditasi" => $this->input->post('ps_diakreditasi'),
+			"ps_lain_dalam_pt" => $this->input->post('ps_lain_dalam_pt'),
+			"ps_lain_luar_pt" => $this->input->post('ps_lain_luar_pt'),
+			"pkm" => $this->input->post('pkm'),
+			"tugas_tambahan" => $this->input->post('tugas_tambahan'),
+			"jumlah_sks" => $this->input->post('jumlah_sks'),
+			"rata2_sks_persemester" => $this->input->post('rata2_sks_persemester'),
             
         ];
         
@@ -46,11 +52,15 @@ class Tabel3a3 extends CI_Controller {
         $id = $this->input->post('id');
         date_default_timezone_set("Asia/Jakarta");
         $data = [
-            "unit" => $this->input->post('unit'),
-            "jumlah_dosen" => $this->input->post('jumlah_dosen'),
-            "jumlah_dosen_bersertifikat" => $this->input->post('jumlah_dosen_bersertifikat'),
-            "created_at" => date("Y-m-d H:i:s"),
-            "updated_at" => date("Y-m-d H:i:s"),
+			"nama_dosen" => $this->input->post('nama_dosen'),
+            "dtps" => $this->input->post('dtps'),
+            "ps_diakreditasi" => $this->input->post('ps_diakreditasi'),
+			"ps_lain_dalam_pt" => $this->input->post('ps_lain_dalam_pt'),
+			"ps_lain_luar_pt" => $this->input->post('ps_lain_luar_pt'),
+			"pkm" => $this->input->post('pkm'),
+			"tugas_tambahan" => $this->input->post('tugas_tambahan'),
+			"jumlah_sks" => $this->input->post('jumlah_sks'),
+			"rata2_sks_persemester" => $this->input->post('rata2_sks_persemester'),
         ];
 
         
@@ -101,9 +111,10 @@ class Tabel3a3 extends CI_Controller {
 						continue;
 					}
 					
-					$datains[$i]['unit'] = $value['B'];
-					$datains[$i]['jumlah_dosen'] = $value['C'];
-					$datains[$i]['jumlah_dosen_bersertifikat'] = $value['D'];
+					$datains[$i]['fakultas'] = $value['B'];
+					$datains[$i]['ts2'] = $value['C'];
+					$datains[$i]['ts1'] = $value['D'];
+					$datains[$i]['ts'] = $value['E'];
 					$datains[$i]['created_at'] = date("Y-m-d H:i:s");
 					$datains[$i]['created_at'] = date("Y-m-d H:i:s"); 
 					$i++;

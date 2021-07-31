@@ -17,6 +17,8 @@ class Tabel2b extends CI_Controller {
       
         $this->load->view('main.php',[
             "page" => "tabel2b",
+			"title" => "Tabel2b",
+			"subtitle" => "Mahasiswa Asing",
             "content" => [],
             "tabel2bs" => $tabel2bs, 
         ]);
@@ -26,12 +28,16 @@ class Tabel2b extends CI_Controller {
     {
         date_default_timezone_set("Asia/Jakarta");
         $data = [
-            "fakultas" => $this->input->post('fakultas'),
-            "ts2" => $this->input->post('ts2'),
-            "ts1" => $this->input->post('ts1'),
-            "ts" => $this->input->post('ts'),
-            "created_at" => date("Y-m-d H:i:s"),
-            "updated_at" => date("Y-m-d H:i:s"),
+            "prodi" => $this->input->post('prodi'),
+            "mhs_ts2" => $this->input->post('mhs_ts2'),
+            "mhs_ts1" => $this->input->post('mhs_ts1'),
+            "mhs_ts" => $this->input->post('mhs_ts'),
+			"mhs_asing_ft_ts2" => $this->input->post('mhs_asing_ft_ts2'),
+            "mhs_asing_ft_ts1" => $this->input->post('mhs_asing_ft_ts1'),
+            "mhs_asing_ft_ts" => $this->input->post('mhs_asing_ft_ts'),
+			"mhs_asing_pt_ts2" => $this->input->post('mhs_asing_pt_ts2'),
+            "mhs_asing_pt_ts1" => $this->input->post('mhs_asing_pt_ts1'),
+            "mhs_asing_pt_ts" => $this->input->post('mhs_asing_pt_ts'),
             
         ];
         
@@ -47,12 +53,16 @@ class Tabel2b extends CI_Controller {
         $id = $this->input->post('id');
         date_default_timezone_set("Asia/Jakarta");
         $data = [
-            "fakultas" => $this->input->post('fakultas'),
-            "ts2" => $this->input->post('ts2'),
-            "ts1" => $this->input->post('ts1'),
-            "ts" => $this->input->post('ts'),
-            "created_at" => date("Y-m-d H:i:s"),
-            "updated_at" => date("Y-m-d H:i:s"),
+            "prodi" => $this->input->post('prodi'),
+            "mhs_ts2" => $this->input->post('mhs_ts2'),
+            "mhs_ts1" => $this->input->post('mhs_ts1'),
+            "mhs_ts" => $this->input->post('mhs_ts'),
+			"mhs_asing_ft_ts2" => $this->input->post('mhs_asing_ft_ts2'),
+            "mhs_asing_ft_ts1" => $this->input->post('mhs_asing_ft_ts1'),
+            "mhs_asing_ft_ts" => $this->input->post('mhs_asing_ft_ts'),
+			"mhs_asing_pt_ts2" => $this->input->post('mhs_asing_pt_ts2'),
+            "mhs_asing_pt_ts1" => $this->input->post('mhs_asing_pt_ts1'),
+            "mhs_asing_pt_ts" => $this->input->post('mhs_asing_pt_ts'),
         ];
 
         

@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Jabatan Akademik Dosen Tetap</h1>
+            <h1><?= $title ?></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Jabatan Akademik Dosen Tetap</a></li>
-              <li class="breadcrumb-item active">Tabel3a2</li>
+              <li class="breadcrumb-item"><a href="#"><?= $title ?></a></li>
+              <li class="breadcrumb-item active"><?= $subtitle ?></li>
             </ol>
           </div>
         </div>
@@ -23,9 +23,8 @@
 				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
-							<h3 class="card-title"><b>Data Tabel3a2 </b></h3>
+							<h3 class="card-title"><b><?= $subtitle ?> </b></h3>
 							<div class="text-right">
-								<a href="<?= base_url('Tabel3a2/chart') ?>" type="button" class="btn btn-sm btn-primary" ><i class="fa fa-chart-bar"></i>&nbsp&nbspChart</a>
 								<button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
 									data-target="#import-tabel3a2"><i class="fa fa-upload"></i>&nbsp&nbspImport</button>
 								<button type="button" class="btn btn-sm btn-success" data-toggle="modal"
@@ -39,14 +38,14 @@
 								<thead class="atas">
 									<tr>
 										<th width="5%">ID</th>
-										<th width="20%">Pendidikan</th>
-										<th width="10%">Guru Besar</th>
-										<th width="10%">Lektor Kepala</th>
-										<th width="10%">Lektor</th>
-										<th width="10%">Asisten Ahli</th>
-										<th width="10%">Tenaga Pengajar</th>
-										<th width="10%">Jumlah</th>
-										<!-- <th width="10%">Action</th> -->
+										<th width="10%">Nama Dosen</th>
+										<th width="10%">PS Teakreditasi TS2</th>
+										<th width="10%">PS Teakreditasi TS1</th>
+										<th width="10%">PS Teakreditasi TS</th>
+										<th width="10%">PS lain TS2</th>
+										<th width="10%">PS lain TS1</th>
+										<th width="10%">PS lain TS</th>
+										<th width="10%">Action</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -56,21 +55,21 @@
 									?>
 									<tr>
 										<td><?php echo $no; ?></td>
-										<td><?php echo $tabel3a2->pendidikan; ?></td>
-										<td><?php echo $tabel3a2->guru_besar; ?></td>
-										<td><?php echo $tabel3a2->lektor_kepala; ?></td>
-										<td><?php echo $tabel3a2->lektor; ?></td>
-										<td><?php echo $tabel3a2->asisten_ahli; ?></td>
-										<td><?php echo $tabel3a2->tenaga_pengajar; ?></td>
-										<td><?php echo $tabel3a2->jumlah; ?></td>
-										<!-- <td>
-											 <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
+										<td><?php echo $tabel3a2->nama_dosen; ?></td>
+										<td><?php echo $tabel3a2->ps_diakreditasi_ts2; ?></td>
+										<td><?php echo $tabel3a2->ps_diakreditasi_ts1; ?></td>
+										<td><?php echo $tabel3a2->ps_diakreditasi_ts; ?></td>
+										<td><?php echo $tabel3a2->ps_lain_ts2; ?></td>
+										<td><?php echo $tabel3a2->ps_lain_ts1; ?></td>
+										<td><?php echo $tabel3a2->ps_lain_ts; ?></td>
+										<td>
+											<button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
 												data-target="#edit-tabel3a2<?php echo $tabel3a2->id;?>"><i
 													class="fa fa-edit"></i>&nbsp&nbspUpdate</button>
 											<a class="btn btn-danger btn-sm delete-link" href="<?= base_url('Tabel3a2/delete/'.$tabel3a2->id);?>"><i
-													class="fa fa-trash "></i>&nbsp&nbspDelete</a> 
+													class="fa fa-trash "></i>&nbsp&nbspDelete</a>
 
-										</td> -->
+										</td>
 									</tr>
 									<?php $no++; } ?>
 
@@ -82,7 +81,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- <div class="modal fade" id="tambah-tabel3a2" >
+				<div class="modal fade" id="tambah-tabel3a2" >
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
 								<div class="modal-header">
@@ -96,39 +95,39 @@
 								<form method="POST" action="<?php echo base_url('Tabel3a2/add'); ?>" enctype="multipart/form-data" class="form-horizontal">
 								<div class="modal-body">
 									<div class="form-group row">
-										<label for="nama" class="col-md-2 col-form-label">Pendidikan</label>
+										<label for="nama" class="col-md-2 col-form-label">PS Terakreditasi TS2</label>
 										<div class="col-md-10">
-											<input type="text" name="pendidikan" id="pendidikan" class="form-control" >
+											<input type="text" name="ps_diakreditasi_ts2" id="ts2" class="form-control" >
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="nama" class="col-md-2 col-form-label">Guru Besar</label>
+										<label for="nama" class="col-md-2 col-form-label">PS Terakreditasi TS1</label>
 										<div class="col-md-10">
-											<input type="text" name="guru_besar" id="guru_besar" class="form-control" >
+											<input type="text" name="ps_diakreditasi_ts1" id="ts1" class="form-control" >
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="nama" class="col-md-2 col-form-label">Lektor Kepala</label>
+										<label for="nama" class="col-md-2 col-form-label">PS Terakreditasi TS</label>
 										<div class="col-md-10">
-											<input type="text" name="lektor_kepala" id="lektor_kepala" class="form-control" >
+											<input type="text" name="ps_diakreditasi_ts" id="ts" class="form-control" >
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="nama" class="col-md-2 col-form-label">Lektor</label>
+										<label for="nama" class="col-md-2 col-form-label">PS Lain TS2</label>
 										<div class="col-md-10">
-											<input type="text" name="lektor" id="lektor" class="form-control" >
+											<input type="text" name="ps_lain_ts2" id="ts2" class="form-control" >
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="nama" class="col-md-2 col-form-label">Asisten Ahli</label>
+										<label for="nama" class="col-md-2 col-form-label">PS Lain TS1</label>
 										<div class="col-md-10">
-											<input type="text" name="asisten_ahli" id="asisten_ahli" class="form-control" >
+											<input type="text" name="ps_lain_ts1" id="ts1" class="form-control" >
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="nama" class="col-md-2 col-form-label">Tenaga Pengajar</label>
+										<label for="nama" class="col-md-2 col-form-label">PS Lain TS</label>
 										<div class="col-md-10">
-											<input type="text" name="tenaga_pengajar" id="tenaga_pengajar" class="form-control" >
+											<input type="text" name="ps_lain_ts" id="ts" class="form-control" >
 										</div>
 									</div>
 								</div>
@@ -139,12 +138,12 @@
 								</div>
 							</form>
 						</div>
-						
+						<!-- /.modal-content -->
 					</div>
-					
-				</div> -->
+					<!-- /.modal-dialog -->
+				</div>
 				<!-- /.modal -->
-				<!-- <?php $no=1;
+				<?php $no=1;
 				foreach ($tabel3a2s as  $tabel3a2) {
 				?>
 				<div class="modal fade" id="edit-tabel3a2<?php echo $tabel3a2->id;?>">
@@ -162,39 +161,39 @@
 										<input type="hidden" name="id" id="id" class="form-control" value="<?= $tabel3a2->id ?>" >
 									</div>
 									<div class="form-group row">
-										<label for="nama" class="col-md-2 col-form-label">Pendidikan</label>
+										<label for="nama" class="col-md-2 col-form-label">PS Terakreditasi TS2</label>
 										<div class="col-md-10">
-											<input type="text" name="pendidikan" id="pendidikan" class="form-control" value="<?= $tabel3a2->pendidikan ?>" >
+											<input type="text" name="ps_diakreditasi_ts2" id="ps_diakreditasi_ts2" class="form-control" value="<?= $tabel3a2->ps_diakreditasi_ts2 ?>" >
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="nama" class="col-md-2 col-form-label">Guru Besar</label>
+										<label for="nama" class="col-md-2 col-form-label">PS Terakreditasi TS1</label>
 										<div class="col-md-10">
-											<input type="text" name="guru_besar" id="guru_besar" class="form-control" value="<?= $tabel3a2->guru_besar ?>" >
+											<input type="text" name="ps_diakreditasi_ts1" id="ps_diakreditasi_ts1" class="form-control" value="<?= $tabel3a2->ps_diakreditasi_ts1 ?>">
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="nama" class="col-md-2 col-form-label">Lektor Kepala</label>
+										<label for="nama" class="col-md-2 col-form-label">PS Terakreditasi TS</label>
 										<div class="col-md-10">
-											<input type="text" name="lektor_kepala" id="lektor_kepala" class="form-control" value="<?= $tabel3a2->lektor_kepala ?>">
+											<input type="text" name="ps_diakreditasi_ts" id="ps_diakreditasi_ts" class="form-control" value="<?= $tabel3a2->ps_diakreditasi_ts ?>" >
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="nama" class="col-md-2 col-form-label">Lektor</label>
+										<label for="nama" class="col-md-2 col-form-label">PS Lain TS2</label>
 										<div class="col-md-10">
-											<input type="text" name="lektor" id="lektor" class="form-control" value="<?= $tabel3a2->lektor ?>" >
+											<input type="text" name="ps_lain_ts2" id="ps_lain_ts2" class="form-control" value="<?= $tabel3a2->ps_lain_ts2 ?>" >
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="nama" class="col-md-2 col-form-label">Asisten Ahli</label>
+										<label for="nama" class="col-md-2 col-form-label">PS Lain TS1</label>
 										<div class="col-md-10">
-											<input type="text" name="asisten_ahli" id="asisten_ahli" class="form-control" value="<?= $tabel3a2->asisten_ahli ?>" >
+											<input type="text" name="ps_lain_ts1" id="ps_lain_ts1" class="form-control" value="<?= $tabel3a2->ps_lain_ts1 ?>">
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="nama" class="col-md-2 col-form-label">Tenaga Pengajar</label>
+										<label for="nama" class="col-md-2 col-form-label">PS Lain TS</label>
 										<div class="col-md-10">
-											<input type="text" name="tenaga_pengajar" id="tenaga_pengajar" class="form-control" value="<?= $tabel3a2->tenaga_pengajar ?>" >
+											<input type="text" name="ps_lain_ts" id="ps_lain_ts" class="form-control" value="<?= $tabel3a2->ps_lain_ts ?>" >
 										</div>
 									</div>
 								</div>
@@ -206,12 +205,12 @@
 							</form>
 								
 						</div>
-						
+						<!-- /.modal-content -->
 					</div>
-					
-				</div> -->
+					<!-- /.modal-dialog -->
+				</div>
 				<!-- /.modal -->
-				<!-- <?php $no++; } ?>
+				<?php $no++; } ?>
 				<div class="modal fade" id="import-tabel3a2" >
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
@@ -239,10 +238,10 @@
 								</div>
 							</form>
 						</div>
-						
+						<!-- /.modal-content -->
 					</div>
-					
-				</div> -->
+					<!-- /.modal-dialog -->
+				</div>
 			</div>
 		</div>
 	</section>

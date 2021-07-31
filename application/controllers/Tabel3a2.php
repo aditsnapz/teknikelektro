@@ -13,13 +13,14 @@ class Tabel3a2 extends CI_Controller {
 
 	public function index()
 	{
-        $tabel3a2s = json_decode(
-			file_get_contents(SERVICE_URL.'Dosen/getTabel3a2')
-		);
+        $tabel3a2s = $this->Tabel3a2Model->show();
+      
         $this->load->view('main.php',[
             "page" => "tabel3a2",
+			"title" => "Tabel3a2",
+			"subtitle" => "Dosen Pembimbing Utama Tugas Akhir",
             "content" => [],
-            "tabel3a2s" => $tabel3a2s->data, 
+            "tabel3a2s" => $tabel3a2s, 
         ]);
     }
 
@@ -27,12 +28,13 @@ class Tabel3a2 extends CI_Controller {
     {
         date_default_timezone_set("Asia/Jakarta");
         $data = [
-            "pendidikan" => $this->input->post('pendidikan'),
-            "guru_besar" => $this->input->post('guru_besar'),
-            "lektor_kepala" => $this->input->post('lektor_kepala'),
-            "lektor" => $this->input->post('lektor'),
-            "asisten_ahli" => $this->input->post('asisten_ahli'),
-            "tenaga_pengajar" => $this->input->post('tenaga_pengajar'),
+            "nama_dosen" => $this->input->post('nama_dosen'),
+            "ps_diakreditasi_ts2" => $this->input->post('ps_diakreditasi_ts2'),
+            "ps_diakreditasi_ts1" => $this->input->post('ps_diakreditasi_ts1'),
+            "ps_diakreditasi_ts" => $this->input->post('ps_diakreditasi_ts'),
+			"ps_lain_ts2" => $this->input->post('ps_lain_ts2'),
+			"ps_lain_ts1" => $this->input->post('ps_lain_ts1'),
+			"ps_lain_ts" => $this->input->post('ps_lain_ts'),
             "created_at" => date("Y-m-d H:i:s"),
             "updated_at" => date("Y-m-d H:i:s"),
             
@@ -50,12 +52,13 @@ class Tabel3a2 extends CI_Controller {
         $id = $this->input->post('id');
         date_default_timezone_set("Asia/Jakarta");
         $data = [
-            "pendidikan" => $this->input->post('pendidikan'),
-            "guru_besar" => $this->input->post('guru_besar'),
-            "lektor_kepala" => $this->input->post('lektor_kepala'),
-            "lektor" => $this->input->post('lektor'),
-            "asisten_ahli" => $this->input->post('asisten_ahli'),
-            "tenaga_pengajar" => $this->input->post('tenaga_pengajar'),
+			"nama_dosen" => $this->input->post('nama_dosen'),
+            "ps_diakreditasi_ts2" => $this->input->post('ps_diakreditasi_ts2'),
+            "ps_diakreditasi_ts1" => $this->input->post('ps_diakreditasi_ts1'),
+            "ps_diakreditasi_ts" => $this->input->post('ps_diakreditasi_ts'),
+			"ps_lain_ts2" => $this->input->post('ps_lain_ts2'),
+			"ps_lain_ts1" => $this->input->post('ps_lain_ts1'),
+			"ps_lain_ts" => $this->input->post('ps_lain_ts'),
             "created_at" => date("Y-m-d H:i:s"),
             "updated_at" => date("Y-m-d H:i:s"),
         ];
@@ -108,12 +111,10 @@ class Tabel3a2 extends CI_Controller {
 						continue;
 					}
 					
-					$datains[$i]['pendidikan'] = $value['B'];
-					$datains[$i]['guru_besar'] = $value['C'];
-					$datains[$i]['lektor_kepala'] = $value['D'];
-					$datains[$i]['lektor'] = $value['E'];
-					$datains[$i]['asisten_ahli'] = $value['F'];
-					$datains[$i]['tenaga_pengajar'] = $value['G'];
+					$datains[$i]['fakultas'] = $value['B'];
+					$datains[$i]['ts2'] = $value['C'];
+					$datains[$i]['ts1'] = $value['D'];
+					$datains[$i]['ts'] = $value['E'];
 					$datains[$i]['created_at'] = date("Y-m-d H:i:s");
 					$datains[$i]['created_at'] = date("Y-m-d H:i:s"); 
 					$i++;
@@ -131,43 +132,6 @@ class Tabel3a2 extends CI_Controller {
 		}
 		redirect(base_url('Tabel3a2')); 
 		
-	}
-
-	public function chart()
-	{
-		$count_profesor = json_decode(
-			file_get_contents(SERVICE_URL.'Dosen/getJumlahProfesor')
-		);
-
-		$tabel3a2 = json_decode(
-			file_get_contents(SERVICE_URL.'Dosen/getTabel3a2')
-		);
-
-		$data_magister = [	$tabel3a2->data[0]->guru_besar,
-							$tabel3a2->data[0]->lektor_kepala, 
-							$tabel3a2->data[0]->lektor, 
-							$tabel3a2->data[0]->asisten_ahli,
-							$tabel3a2->data[0]->tenaga_pengajar
-						];
-		$data_doktor = [	$tabel3a2->data[1]->guru_besar,
-							$tabel3a2->data[1]->lektor_kepala, 
-							$tabel3a2->data[1]->lektor, 
-							$tabel3a2->data[1]->asisten_ahli,
-							$tabel3a2->data[1]->tenaga_pengajar
-						];
-		
-
-		$this->load->view('main.php',[
-            "page" => "tabel3a2chart",
-			"content" => [],
-			"count_profesor" => json_encode($count_profesor->data[0]->jumlah),
-			"magister" => json_encode($tabel3a2->data[0]->guru_besar),
-			"doktor" => json_encode($tabel3a2->data[1]->guru_besar),
-			"data_magister" => json_encode($data_magister),
-			"data_doktor" => json_encode($data_doktor),
-			"jumlah_magister" => json_encode($tabel3a2->data[0]->jumlah),
-			"jumlah_doktor" => json_encode($tabel3a2->data[1]->jumlah),
-        ]);
 	}
 
 }

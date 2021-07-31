@@ -17,6 +17,8 @@ class Tabel2a extends CI_Controller {
       
         $this->load->view('main.php',[
             "page" => "tabel2a",
+			"title" => "Tabel2a",
+			"subtitle" => "Seleksi Mahasiswa",
             "content" => [],
             "tabel2as" => $tabel2as, 
         ]);

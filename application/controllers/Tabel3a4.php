@@ -13,14 +13,14 @@ class Tabel3a4 extends CI_Controller {
 
 	public function index()
 	{
-        $tabel3a4s = json_decode(
-			file_get_contents(SERVICE_URL.'Dosen/getTabel3a4')
-		);
+        $tabel3a4s = $this->Tabel3a4Model->show();
       
         $this->load->view('main.php',[
             "page" => "tabel3a4",
+			"title" => "Tabel3a4 ",
+			"subtitle" => "Dosen Tidak Tetap ",
             "content" => [],
-            "tabel3a4s" => $tabel3a4s->data, 
+            "tabel3a4s" => $tabel3a4s, 
         ]);
     }
 
@@ -28,14 +28,15 @@ class Tabel3a4 extends CI_Controller {
     {
         date_default_timezone_set("Asia/Jakarta");
         $data = [
-            "pendidikan" => $this->input->post('pendidikan'),
-            "guru_besar" => $this->input->post('guru_besar'),
-            "lektor_kepala" => $this->input->post('lektor_kepala'),
-            "lektor" => $this->input->post('lektor'),
-            "asisten_ahli" => $this->input->post('asisten_ahli'),
-            "tenaga_pengajar" => $this->input->post('tenaga_pengajar'),
-            "created_at" => date("Y-m-d H:i:s"),
-            "updated_at" => date("Y-m-d H:i:s"),
+			"nama_dosen" => $this->input->post('nama_dosen'),
+            "nidn" => $this->input->post('nidn'),
+            "pendidikan_pascasarjana" => $this->input->post('pendidikan_pascasarjana'),
+            "bidang_keahlian" => $this->input->post('bidang_keahlian'),
+			"jabatan_akademik" => $this->input->post('jabatan_akademik'),
+			"sertifikat_pendidik" => $this->input->post('sertifikat_pendidik'),
+            "sertifikat_kompetensi" => $this->input->post('sertifikat_kompetensi'),
+            "mata_kuliah_ps_diakreditasi" => $this->input->post('mata_kuliah_ps_diakreditasi'),
+            "kesesuian" => $this->input->post('kesesuian'),
             
         ];
         
@@ -51,14 +52,15 @@ class Tabel3a4 extends CI_Controller {
         $id = $this->input->post('id');
         date_default_timezone_set("Asia/Jakarta");
         $data = [
-            "pendidikan" => $this->input->post('pendidikan'),
-            "guru_besar" => $this->input->post('guru_besar'),
-            "lektor_kepala" => $this->input->post('lektor_kepala'),
-            "lektor" => $this->input->post('lektor'),
-            "asisten_ahli" => $this->input->post('asisten_ahli'),
-            "tenaga_pengajar" => $this->input->post('tenaga_pengajar'),
-            "created_at" => date("Y-m-d H:i:s"),
-            "updated_at" => date("Y-m-d H:i:s"),
+			"nama_dosen" => $this->input->post('nama_dosen'),
+            "nidn" => $this->input->post('nidn'),
+            "pendidikan_pascasarjana" => $this->input->post('pendidikan_pascasarjana'),
+            "bidang_keahlian" => $this->input->post('bidang_keahlian'),
+			"jabatan_akademik" => $this->input->post('jabatan_akademik'),
+			"sertifikat_pendidik" => $this->input->post('sertifikat_pendidik'),
+            "sertifikat_kompetensi" => $this->input->post('sertifikat_kompetensi'),
+            "mata_kuliah_ps_diakreditasi" => $this->input->post('mata_kuliah_ps_diakreditasi'),
+            "kesesuian" => $this->input->post('kesesuian'),
         ];
 
         
@@ -109,12 +111,10 @@ class Tabel3a4 extends CI_Controller {
 						continue;
 					}
 					
-					$datains[$i]['pendidikan'] = $value['B'];
-					$datains[$i]['guru_besar'] = $value['C'];
-					$datains[$i]['lektor_kepala'] = $value['D'];
-					$datains[$i]['lektor'] = $value['E'];
-					$datains[$i]['asisten_ahli'] = $value['F'];
-					$datains[$i]['tenaga_pengajar'] = $value['G'];
+					$datains[$i]['fakultas'] = $value['B'];
+					$datains[$i]['ts2'] = $value['C'];
+					$datains[$i]['ts1'] = $value['D'];
+					$datains[$i]['ts'] = $value['E'];
 					$datains[$i]['created_at'] = date("Y-m-d H:i:s");
 					$datains[$i]['created_at'] = date("Y-m-d H:i:s"); 
 					$i++;

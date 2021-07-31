@@ -26,7 +26,8 @@ class User extends CI_Controller {
         date_default_timezone_set("Asia/Jakarta");
         $data = [
             "nama" => $this->input->post('nama'),
-            "email" => $this->input->post('email'),
+            "username" => $this->input->post('username'),
+            "role" => 2,
             "password" => md5($this->input->post('password')),
             "created_at" => date("Y-m-d H:i:s"),
             "updated_at" => date("Y-m-d H:i:s"),
@@ -68,7 +69,8 @@ class User extends CI_Controller {
         date_default_timezone_set("Asia/Jakarta");
         $data = [
 			"nama" => $this->input->post('nama'),
-			"email" => $this->input->post('email'),
+			"username" => $this->input->post('username'),
+			"role" => $this->input->post('role'),
             "updated_at" => date("Y-m-d H:i:s"),
         ];
 
